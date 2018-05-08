@@ -49,7 +49,7 @@
 			</div>
 			<div class="col-md-3 mb-3">
 				<label for="validationDefault05"></label> <input type="password"
-					class="form-control" placeholder="Senha" required>
+					class="form-control" name = "senha" placeholder="Senha" required>
 			</div>
 			<button type="submit" class="btn btn-success">Entrar</button>
 	</form>

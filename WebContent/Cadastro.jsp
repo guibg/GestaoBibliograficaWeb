@@ -27,7 +27,7 @@
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="/GestaoBibliografica/login.jsp">Login </a></li>
+						href="/GestaoBibliografica/Lenogin.jsp">Login </a></li>
 					<li class="nav-item active"><a class="nav-link"
 						href="/GestaoBibliografica/Cadastro.jsp">Cadastrar</a></li>
 				</ul>
@@ -71,7 +71,7 @@
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
 					<label for="validationDefault03">Senha</label> <input type="text"
-						class="form-control" id="validationDefault03" placeholder="City"
+						class="form-control" id="validationDefault03" placeholder="Senha"
 						required>
 				</div>
 				<div class="col-md-2 mb-3">

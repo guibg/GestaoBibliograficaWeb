@@ -1,5 +1,6 @@
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +17,13 @@ public class LoginController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (request.getParameter("usuario") == request.getParameter("senha")) {
-			response.sendRedirect("/GestaoBibliografica/Cadastro.jsp");
+		String usuario = request.getParameter("usuario");
+		String senha = request.getParameter("senha");
+		if (usuario.equals(senha)) {
+			response.sendRedirect("/GestaoBibliografica/Home.jsp");
+
+		} else {
+			response.sendRedirect("/GestaoBibliografica/Login.jsp");
 		}
 	}
 

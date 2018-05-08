@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Usuario {
-	private String usuario;
+	private String login;
 	private String senha;
 
 	static ArrayList<Usuario> usuarios = new ArrayList<>();
@@ -13,7 +13,7 @@ public class Usuario {
 
 	public boolean verificarUsuario(Usuario usuario) {
 		for (Usuario usuario2 : usuarios) {
-			if (usuario.usuario.equals(usuario2.usuario)) {
+			if (usuario.login.equals(usuario2.login)) {
 				return true;
 			}
 		}
@@ -22,16 +22,16 @@ public class Usuario {
 
 	public void imprimirUsuario() {
 		for (Usuario usuario : usuarios) {
-			System.out.println(usuario.usuario);
+			System.out.println(usuario.login);
 		}
 	}
 
 	public String getUsuario() {
-		return usuario;
+		return login;
 	}
 
 	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+		this.login = usuario;
 	}
 
 	public String getSenha() {

@@ -12,7 +12,6 @@
 <body>
 	<!--  Menu de navegação> -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
 		<a href="https://www.ucsal.br/"> <img alt="Logo UCSal"
 			src="https://ead.ucsal.br/pluginfile.php/1/theme_adaptable/logo/1523360667/logomarca_UCSal_branca_fundo_transparente_v2.png">
 		</a>
@@ -25,10 +24,10 @@
 
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#"">Home
-							</a></li>
-					<li class="nav-item active"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
-							<span class="sr-only">(current)</span>
+					<li class="nav-item active"><a class="nav-link"
+						href="Home.jsp"">Home </a></li>
+					<li class="nav-item"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
+							<span class="sr-only"></span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="Cadastro.jsp">Minhas
 							reservas</a></li>
@@ -37,5 +36,6 @@
 		</h3>
 	</nav>
 	<!-- Fim do menu de navegação -->
+	<!-- <c:import url="BarraNavegacaoLogado.jsp"></c:import> -->
 </body>
 </html>

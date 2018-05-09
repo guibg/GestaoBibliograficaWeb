@@ -1,4 +1,4 @@
-package gestaobibliografica.dao;
+package br.ucsal.dao;
 
 import java.sql.Connection;
 

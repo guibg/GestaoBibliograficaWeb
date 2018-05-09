@@ -38,10 +38,11 @@
 			</div>
 		</h3>
 	</nav>
+	<!-- <c:import url="BarraNavegacao.jsp"></c:import> -->
 	<!-- Fim do menu de navegação -->
 	<form action="/GestaoBibliografica/LoginController" method="post">
 		<div align="center">
-			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br>
 			<h1>Acessar</h1>
 			<div class="col-md-3 mb-3">
 				<label for="validationDefault05"></label> <input type="text"
@@ -49,7 +50,7 @@
 			</div>
 			<div class="col-md-3 mb-3">
 				<label for="validationDefault05"></label> <input type="password"
-					class="form-control" name = "senha" placeholder="Senha" required>
+					class="form-control" name="senha" placeholder="Senha" required>
 			</div>
 			<button type="submit" class="btn btn-success">Entrar</button>
 	</form>

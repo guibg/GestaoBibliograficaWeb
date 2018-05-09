@@ -27,13 +27,14 @@
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link"
-						href="/GestaoBibliografica/Lenogin.jsp">Login </a></li>
+						href="/GestaoBibliografica/Login.jsp">Login </a></li>
 					<li class="nav-item active"><a class="nav-link"
 						href="/GestaoBibliografica/Cadastro.jsp">Cadastrar</a></li>
 				</ul>
 			</div>
 		</h3>
 	</nav>
+	<!-- <c:import url="BarraNavegacao.jsp"></c:import> -->
 	<!-- Fim do menu de navegação -->
 	<br>
 	<br>

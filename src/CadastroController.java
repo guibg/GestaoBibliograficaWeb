@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.entidades.Usuario;
+
 @WebServlet("/CadastroController")
 public class CadastroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -14,14 +16,13 @@ public class CadastroController extends HttpServlet {
 		super();
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Usuario usuario = new Usuario();
 		if (!usuario.verificarUsuario(usuario)) {
 			usuario.inserirUsuario(usuario);
 		} else {
-			
+
 		}
 	}
 

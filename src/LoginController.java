@@ -20,10 +20,9 @@ public class LoginController extends HttpServlet {
 		String usuario = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
 		if (usuario.equals(senha)) {
-			response.sendRedirect("/GestaoBibliografica/Home.jsp");
-
+			response.sendRedirect("/GestaoBibliografica/AdminHome.jsp");
 		} else {
-			response.sendRedirect("/GestaoBibliografica/Login.jsp");
+			response.sendRedirect("/GestaoBibliografica/Home.jsp");
 		}
 	}
 

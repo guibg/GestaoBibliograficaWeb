@@ -1,3 +1,4 @@
+package br.ucsal.entidades;
 import java.util.ArrayList;
 
 public class Usuario {

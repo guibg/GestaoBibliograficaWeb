@@ -48,9 +48,8 @@
 			method="post">
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
-					<label for="validationDefault01">Nome do livro</label> <input
-						type="text" class="form-control" placeholder="Nome do livro"
-						required>
+					<label for="validationDefault01">Título</label> <input type="text"
+						class="form-control" placeholder="Título" required name="titulo">
 				</div>
 				<div class="col-md-2 mb-3">
 					<label for="validationDefault02">Editora</label> <input type="text"
@@ -58,21 +57,30 @@
 				</div>
 
 				<div class="col-md-2 mb-3">
-					<label for="validationDefaultUsername">Autores</label> <input
+					<label for="validationDefaultUsername">Autor Nome</label> <input
 						type="text" class="form-control" id="validationDefaultUsername"
-						placeholder="Autor" aria-describedby="inputGroupPrepend2" required>
+						placeholder="Autor" aria-describedby="inputGroupPrepend2" required
+						name="autorNome">
+				</div>
+
+				<div class="col-md-2 mb-3">
+					<label for="validationDefaultUsername">Autor Sobrenome</label> <input
+						type="text" class="form-control" id="validationDefaultUsername"
+						placeholder="Autor" aria-describedby="inputGroupPrepend2" required
+						name="autorSobrenome">
+				</div>
+				<div class="col-md-2 mb-3">
+					<label for="validationDefaultUsername">Materia</label> <input
+						type="text" class="form-control" id="validationDefaultUsername"
+						placeholder="Materia" aria-describedby="inputGroupPrepend2"
+						required name="materia">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
-					<label for="validationDefault03">Imagem</label> <input type="text"
-						class="form-control" id="validationDefault03" placeholder="Imagem"
-						required>
-				</div>
-				<div class="col-md-2 mb-3">
 					<label for="validationDefault04">Edição</label> <input type="text"
 						class="form-control" id="validationDefault04" placeholder="Edição"
-						required>
+						required name="edicao">
 				</div>
 			</div>
 			<button class="btn btn-primary" type="submit">Cadastrar

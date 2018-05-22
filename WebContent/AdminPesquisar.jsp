@@ -25,7 +25,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="AdminHome.jsp"">Home
+				<li class="nav-item"><a class="nav-link" href="AdminHome.jsp">Home
 				</a></li>
 				<li class="nav-item active"><a class="nav-link"
 					href="AdminPesquisar.jsp">Pesquisar <span class="sr-only"></span>
@@ -37,6 +37,5 @@
 	</h3>
 	</nav>
 	<!-- Fim do menu de navegação -->
-
 </body>
 </html>

@@ -1,8 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="br.ucsal.entidades.Bibliografia"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<style type="text/css">
+td {
+	padding: 80px !important;
+}
+
+.tdEspaco {
+	display: table !important;
+	float: left !important;
+	margin-left: 192px !important;
+	margin-bottom: 80px !important;
+}
+
+table {
+	border-spacing: 50px 60px !important;
+}
+
+table>tbody>tr>td {
+	padding: 5px 20px !important;
+}
+</style>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
 	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -37,5 +60,36 @@
 	</h3>
 	</nav>
 	<!-- Fim do menu de navegação -->
+	<form action="/GestaoBibliografica/PesquisarController" method="post">
+		<br> <br> <br> <br>
+		<div class="col-md-3 mb-3" align="center">
+			<label for="validationDefault05"></label> <input type="text"
+				class="form-control" name="pesquisa" placeholder="Pesquisar"
+				required>
+			<button type="submit" class="btn btn-success">Pesquisar</button>
+		</div>
+		<table>
+			<tr>
+				<%
+					ArrayList<Bibliografia> x = Bibliografia.bibliografias;
+					String pesquisa = (String) session.getAttribute("pesquisa");
+					if (pesquisa != null) {
+						for (int i = 0; i < Bibliografia.bibliografias.size(); i++) {
+							if (x.get(i).getTitulo().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getAutor().getNome().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getAutor().getSobrenome().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getEditora().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getMateria().getNome().toLowerCase().contains(pesquisa.toLowerCase())) {
+								out.print("<td class='tdEspaco'>Titulo:" + x.get(i).getTitulo() + " <br>Editora: "
+										+ x.get(i).getEditora() + "<br> Autor: " + x.get(i).getAutor().getNome() + " "
+										+ x.get(i).getAutor().getSobrenome() + "<br>Edição: " + x.get(i).getEdicao()
+										+ "° Edição</td>");
+							}
+						}
+					}
+				%>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

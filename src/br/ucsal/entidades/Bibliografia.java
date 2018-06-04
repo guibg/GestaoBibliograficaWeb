@@ -1,20 +1,17 @@
 package br.ucsal.entidades;
 
+import java.util.ArrayList;
+
 public class Bibliografia {
-	private Integer id;
 	private Autor autor;
 	private String titulo;
 	private Integer edicao;
-	private String editora;
 	private Materia materia;
 	private Avaliacao avaliacao;
+	private static ArrayList<Bibliografia> bibliografias = new ArrayList<>();
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+	public static void inserirBibliografia(Bibliografia bibliografia) {
+		bibliografias.add(bibliografia);
 	}
 
 	public Avaliacao getAvaliacao() {
@@ -45,7 +42,7 @@ public class Bibliografia {
 		return edicao;
 	}
 
-	public void setEdicao(Integer edicao) {
+	public void setEdicao(int edicao) {
 		this.edicao = edicao;
 	}
 
@@ -55,13 +52,5 @@ public class Bibliografia {
 
 	public void setMateria(Materia materia) {
 		this.materia = materia;
-	}
-
-	public String getEditora() {
-		return editora;
-	}
-
-	public void setEditora(String editora) {
-		this.editora = editora;
 	}
 }

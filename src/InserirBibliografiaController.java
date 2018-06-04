@@ -1,7 +1,5 @@
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +29,18 @@ public class InserirBibliografiaController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		request.getRequestDispatcher("Pesquisar.jsp").forward(request, response);
+
+		Bibliografia bibliografia = new Bibliografia();
+		Autor autor = new Autor();
+		autor.setNome((String) request.getAttribute("autorNome"));
+		autor.setSobrenome((String) request.getAttribute("autorSobreome"));
+		Materia materia = new Materia();
+		materia.setNome((String) request.getAttribute("materia"));
+		bibliografia.setTitulo((String) request.getAttribute("titulo"));
+		bibliografia.setAutor(autor);
+		bibliografia.setMateria(materia);
+		bibliografia.setEdicao((Integer) request.getAttribute("edicao"));
+		Bibliografia.inserirBibliografia(bibliografia);
 	}
+
 }

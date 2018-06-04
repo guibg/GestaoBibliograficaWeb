@@ -18,12 +18,6 @@ public class CadastroController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Usuario usuario = new Usuario();
-		if (!usuario.verificarUsuario(usuario)) {
-			usuario.inserirUsuario(usuario);
-		} else {
-
-		}
 	}
 
 }

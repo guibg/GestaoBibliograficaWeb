@@ -44,7 +44,7 @@
 	<br>
 	<br>
 	<div align="center">
-		<form action="/GestaoBibliografica/InserirBibliografiaController"
+		<form action="/GestaoBibliografica/EfetuarCadastroController"
 			method="post">
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-md-2 mb-3">
 					<label for="validationDefault02">Editora</label> <input type="text"
-						class="form-control" placeholder="Editora" required name="editora">
+						class="form-control" placeholder="Editora" required>
 				</div>
 
 				<div class="col-md-2 mb-3">
@@ -78,7 +78,7 @@
 			</div>
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
-					<label for="validationDefault04">Edição</label> <input type="number"
+					<label for="validationDefault04">Edição</label> <input type="text"
 						class="form-control" id="validationDefault04" placeholder="Edição"
 						required name="edicao">
 				</div>

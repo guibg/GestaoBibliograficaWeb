@@ -11,7 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class BibliografiaDAO {
 
 	private Conexao conexao;
@@ -21,29 +20,25 @@ public class BibliografiaDAO {
 
 		try {
 			PreparedStatement ps = conexao.getConnection()
-					.prepareStatement("SELECT AUTORES.Titulo, AUTORES.SOBRETitulo, "
-							+ "BibliografiaS.ID, TituloBibliografia, ID_AUTOR, EDITORA, EDICAO FROM BibliografiaS, AUTORES WHERE BibliografiaS.ID_AUTOR = AUTORES.ID);");
+					.prepareStatement("SELECT Bibliografia.Titulo, autor.Sobrenome, autor.Nome "
+							+ "autor_bibliografia.id_autor, autor_bibliografia.id_bibliografia, editora, edicao FROM Bibliografia, autor, autor_bibliografia WHERE autor_bibliografia.id_autor = autor_bibliografia.id_bibliografia);");
 			ResultSet rs = ps.executeQuery();
-			boolean achou = false;
-			while (rs.next() && !achou) {
+			while (rs.next()) {
 				Bibliografia Bibliografia = new Bibliografia();
-				Bibliografia.setId(rs.getInt("ID"));
-				Bibliografia.setTitulo(rs.getString("TituloBibliografiaS"));
-				Bibliografia.setEditora(rs.getString("EDITORA"));
-				Bibliografia.setEdicao(rs.getInt("EDICAO"));
+				Bibliografia.setId(rs.getInt("id_bibliografia"));
+				Bibliografia.setTitulo(rs.getString("Titulo"));
+				Bibliografia.setEditora(rs.getString("editora"));
+				Bibliografia.setEdicao(rs.getInt("edicao"));
 
 				Autor autor = new Autor();
-				autor.setId(rs.getInt("ID_AUTOR"));
+				autor.setId(rs.getInt("id_autor"));
 				autor.setNome(rs.getString("Nome"));
 				autor.setSobrenome(rs.getString("Sobrenome"));
 
 				Bibliografia.setAutor(autor);
 
-				if (rs.getInt("ID_AUTOR") == Bibliografia.getId()
-						&& rs.getString("TituloBibliografia").equals(Bibliografia.getTitulo())) {
-					achou = true;
-					Bibliografias.add(Bibliografia);
-				}
+				Bibliografias.add(Bibliografia);
+
 			}
 			ps.close();
 		} catch (SQLException e) {
@@ -53,6 +48,7 @@ public class BibliografiaDAO {
 		return Bibliografias;
 	}
 
+	// A PROCURA DE UMA UTILIDADE DESSE METODO
 	public List<Bibliografia> listar() {
 		Statement stmt;
 		List<Bibliografia> Bibliografias = new ArrayList<>();
@@ -87,9 +83,9 @@ public class BibliografiaDAO {
 		try {
 
 			PreparedStatement ps = conexao.getConnection().prepareStatement(
-					"insert into BibliografiaS (Titulo, ID_AUTOR, EDICAO, EDITORA) values (?,?,?,?);");
+					"insert into Bibliografia (Titulo,id_Materia, EDICAO, EDITORA) values (?,?,?,?);");
 			ps.setString(1, Bibliografia.getTitulo());
-			ps.setInt(2, Bibliografia.getAutor().getId());
+			ps.setInt(2, Bibliografia.getMateria().getId());
 			ps.setInt(3, Bibliografia.getEdicao());
 			ps.setString(4, Bibliografia.getEditora());
 
@@ -99,4 +95,21 @@ public class BibliografiaDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public boolean deletar(Bibliografia bibliografia) {
+		return deletar(bibliografia.getId());
+	}
+
+	public boolean deletar(Integer idDeletar) {
+		try {
+			PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE Bibliografia WHERE id = ?;");
+			ps.setInt(1, idDeletar);
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
 }

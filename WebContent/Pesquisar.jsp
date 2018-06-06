@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="br.ucsal.dao.BibliografiaDAO"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -72,7 +73,7 @@ table>tbody>tr>td {
 		<table>
 			<tr>
 				<%
-					ArrayList<Bibliografia> x = Bibliografia.bibliografias;
+					/*ArrayList<Bibliografia> x = Bibliografia.bibliografias;
 					String pesquisa = (String) session.getAttribute("pesquisa");
 					if (pesquisa != null) {
 						for (int i = 0; i < Bibliografia.bibliografias.size(); i++) {
@@ -87,7 +88,7 @@ table>tbody>tr>td {
 										+ "° Edição</td>");
 							}
 						}
-					}
+					}*/
 				%>
 				<c:forEach var="livro" items="${bibliografias}">
 					<c:if test="">

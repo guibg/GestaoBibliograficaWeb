@@ -68,28 +68,26 @@ table>tbody>tr>td {
 				required>
 			<button type="submit" class="btn btn-success">Pesquisar</button>
 		</div>
-		<table>
+		<!-- <table>
 			<tr>
-				<%
-					ArrayList<Bibliografia> x = Bibliografia.bibliografias;
-					String pesquisa = (String) session.getAttribute("pesquisa");
-					if (pesquisa != null) {
-						for (int i = 0; i < Bibliografia.bibliografias.size(); i++) {
-							if (x.get(i).getTitulo().toLowerCase().contains(pesquisa.toLowerCase())
-									|| x.get(i).getAutor().getNome().toLowerCase().contains(pesquisa.toLowerCase())
-									|| x.get(i).getAutor().getSobrenome().toLowerCase().contains(pesquisa.toLowerCase())
-									|| x.get(i).getEditora().toLowerCase().contains(pesquisa.toLowerCase())
-									|| x.get(i).getMateria().getNome().toLowerCase().contains(pesquisa.toLowerCase())) {
-								out.print("<td class='tdEspaco'>Titulo:" + x.get(i).getTitulo() + " <br>Editora: "
-										+ x.get(i).getEditora() + "<br> Autor: " + x.get(i).getAutor().getNome() + " "
-										+ x.get(i).getAutor().getSobrenome() + "<br>Edição: " + x.get(i).getEdicao()
-										+ "° Edição</td>");
-							}
+				<%/*	ArrayList<Bibliografia> x = Bibliografia.bibliografias;
+				String pesquisa = (String) session.getAttribute("pesquisa");
+				if (pesquisa != null) {
+					for (int i = 0; i < Bibliografia.bibliografias.size(); i++) {
+						if (x.get(i).getTitulo().toLowerCase().contains(pesquisa.toLowerCase())
+								|| x.get(i).getAutor().getNome().toLowerCase().contains(pesquisa.toLowerCase())
+								|| x.get(i).getAutor().getSobrenome().toLowerCase().contains(pesquisa.toLowerCase())
+								|| x.get(i).getEditora().toLowerCase().contains(pesquisa.toLowerCase())
+								|| x.get(i).getMateria().getNome().toLowerCase().contains(pesquisa.toLowerCase())) {
+							out.print("<td class='tdEspaco'>Titulo:" + x.get(i).getTitulo() + " <br>Editora: "
+									+ x.get(i).getEditora() + "<br> Autor: " + x.get(i).getAutor().getNome() + " "
+									+ x.get(i).getAutor().getSobrenome() + "<br>Edição: " + x.get(i).getEdicao()
+									+ "° Edição</td>");
 						}
 					}
-				%>
+				}*/%>
 			</tr>
-		</table>
+		</table> -->
 	</form>
 </body>
 </html>

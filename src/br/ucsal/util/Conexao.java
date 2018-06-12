@@ -8,9 +8,9 @@ public class Conexao {
 
     private Connection connection = null;
 
-    private String url = "jdbc:postgresql://localhost/GestaoBibliografica";
-    private String usuario = "SA";
-    private String senha = "";
+    private String url = "jdbc:postgresql://localhost:6543/GestaoBibliografica";
+    private String usuario = "postgres";
+    private String senha = "postgresql";
 
     private static Conexao conexao;
 
@@ -22,7 +22,7 @@ public class Conexao {
         }
     }
 
-    private Conexao() {
+    public Conexao() {
         try {
             connection = DriverManager.getConnection(url, usuario,senha);
             new LoadTables().creatScherma(connection);

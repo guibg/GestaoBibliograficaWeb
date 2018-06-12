@@ -7,39 +7,39 @@ import java.sql.Statement;
 public class LoadTables {
 
 	public void creatScherma(Connection c) throws SQLException {
-
 		// Usuarios
-		Statement stmt = c.createStatement();
-		stmt.execute("create table usuario(nome varchar(20), sobrenome varchar(50),"
-				+ "login varchar(12), senha varchar(12),id int PRIMARY KEY, id_avaliacao int);");
+        Statement stmt = c.createStatement();
+        stmt.execute("create table usuarios(nome varchar(20), sobrenome varchar(50),"
+                + "login varchar(12), senha varchar(12),id SERIAL PRIMARY KEY);");
 
-		// Autores
-		stmt.execute("create table autor(nome varchar(20), sobrenome varchar(50),id int PRIMARY KEY);");
+        // Avalição
+        stmt.execute("create table avaliacao(id SERIAL PRIMARY KEY, nota int, comentario VARCHAR (150),id_usuario int, id_bibliografia int );");
 
-		// Tabela autor e bibliografia
-		stmt.execute("create table autor_bibliografia (id int PRIMARY KEY, id_autor int, id_bibliografia int);");
+        // Autores
+        stmt.execute("create table autores(nome varchar(20), sobrenome varchar(50),id SERIAL PRIMARY KEY);");
+
+        // Tabela autor e bibliografia
+        stmt.execute("create table autor_bibliografia (id SERIAL PRIMARY KEY, id_autor int, id_bibliografia int);");
 
 
-		// Bibliografias
-		stmt.execute("create table bibliografia(titulo varchar(50),edicao int,editora varchar(50),"
-				+ " id int PRIMARY KEY, id_materia int);");
+        // Bibliografias
+        stmt.execute("create table bibliografias(titulo varchar(50),edicao int,editora varchar(50),"
+                + " id SERIAL PRIMARY KEY, id_materia int);");
 
-		// Materia
-		stmt.execute("create table materia(nome varchar(30),id int PRIMARY KEY);");
+        // Materia
+        stmt.execute("create table materias(nome varchar(30),id SERIAL PRIMARY KEY);");
 
-		// Foreign Keys
-		stmt.execute(
-				"alter table autor_bibliografia add constraint fk_id_autor foreign key (id_autor) references autor(id);");
-		stmt.execute("alter table autor_bibliografia add constraint fk_id_bibliografia foreign key (id_bibliografia)"
-				+ " references bibliografia(id);");
-		stmt.execute(
-				"alter table usuario add constraint fk_id_avaliacao foreign key (id_avaliacao) references avaliacao(id);");
-		stmt.execute(
-				"alter table avaliacao add constraint fk_id_usuario foreign key (id_usuario) references usuario(id);");
-		stmt.execute(
-				"alter table avaliacao add constraint fk_id_bibliografia foreign key (id_bibliografia) references bibliografia(id);");
-		stmt.execute(
-				"alter table bibliografia add constraint fk_id_materia foreign key (id_materia) references materia(id);");
+        // Foreign Keys
+        stmt.execute(
+                "alter table autor_bibliografia add constraint fk_id_autor foreign key (id_autor) references autores(id);");
+        stmt.execute("alter table autor_bibliografia add constraint fk_id_bibliografia foreign key (id_bibliografia)"
+                + " references bibliografias(id);");
+        stmt.execute(
+                "alter table avaliacao add constraint fk_id_usuario foreign key (id_usuario) references usuarios(id);");
+        stmt.execute(
+                "alter table avaliacao add constraint fk_id_bibliografia foreign key (id_bibliografia) references bibliografias(id);");
+        stmt.execute(
+                "alter table bibliografia add constraint fk_id_materia foreign key (id_materia) references materias(id);");
 
 	}
 

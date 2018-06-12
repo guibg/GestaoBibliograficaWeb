@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.dao.UsuarioDAO;
+import br.ucsal.entidades.Usuario;
+
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -20,10 +23,17 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 		String usuario = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
-		if (usuario.equals(senha)) {
+
+		UsuarioDAO dao = new UsuarioDAO();
+		Usuario conta = new Usuario();
+		conta.setLogin(usuario);
+		conta.setSenha(senha);
+		if (usuario.equals("admin") && senha.equals("admin")) {
 			response.sendRedirect("/GestaoBibliografica/AdminHome.jsp");
-		} else {
+		} else if (dao.verificar(conta)) {
 			response.sendRedirect("/GestaoBibliografica/Home.jsp");
+		} else {
+			response.sendRedirect("/GestaoBibliografica/Login.jsp");
 		}
 	}
 

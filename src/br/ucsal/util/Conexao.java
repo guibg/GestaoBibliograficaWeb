@@ -25,7 +25,7 @@ public class Conexao {
 	public Conexao() {
 		try {
 			connection = DriverManager.getConnection(url, usuario, senha);
-			new LoadTables().creatScherma(connection);
+			// new LoadTables().creatScherma(connection);
 		} catch (SQLException e) {
 			System.out.println("Erro ao conectar com o banco: " + e.getMessage());
 			e.printStackTrace();

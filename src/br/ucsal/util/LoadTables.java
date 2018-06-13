@@ -11,7 +11,7 @@ public class LoadTables {
 		// Usuarios
 		Statement stmt = c.createStatement();
 		stmt.execute("create table usuarios(nome varchar(20), sobrenome varchar(50),"
-				+ "login varchar(12), senha varchar(12),id SERIAL PRIMARY KEY, tipo String);");
+				+ "login varchar(12), senha varchar(12),id SERIAL PRIMARY KEY, tipo varchar(7));");
 
 		// Avalição
 		stmt.execute(
@@ -47,7 +47,7 @@ public class LoadTables {
 		stmt.execute(
 				"alter table materia_bibliografia add constraint fk_id_materia foreign key (id_materia) references materias(id);");
 		stmt.execute(
-				"alter table materia_bibliografia add constraint fk_id_bibliografia foreign key (id_bibliografia) references bibliografia(id);");
+				"alter table materia_bibliografia add constraint fk_id_bibliografia foreign key (id_bibliografia) references bibliografias(id);");
 
 	}
 }

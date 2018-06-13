@@ -25,13 +25,12 @@ public class LoginController extends HttpServlet {
 		String senha = request.getParameter("senha");
 
 		UsuarioDAO dao = new UsuarioDAO();
-		Usuario conta = new Usuario();
-		conta.setLogin(usuario);
-		conta.setSenha(senha);
-		System.out.println("1");
+		Usuario conta  = dao.obterUsuarioPorLoginSenha(usuario,senha);
+
 		if (usuario.equals("admin") && senha.equals("admin")) {
 			response.sendRedirect("/GestaoBibliografica/AdminHome.jsp");
-		} else if (dao.verificar(conta)) {
+		} else if (conta != null) {
+			request.getSession().setAttribute("conta", conta);
 			response.sendRedirect("/GestaoBibliografica/Home.jsp");
 		} else {
 			response.sendRedirect("/GestaoBibliografica/Login.jsp");

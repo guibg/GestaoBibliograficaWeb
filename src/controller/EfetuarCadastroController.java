@@ -38,7 +38,7 @@ public class EfetuarCadastroController extends HttpServlet {
 			conta.setSobrenome(sobrenome);
 			conta.setSenha(senha);
 			dao.inserir(conta);
-			request.getRequestDispatcher("/GestaoBilbiografica/Login.jsp").forward(request, response);
+			response.sendRedirect("/GestaoBibliografica/Login.jsp");
 		} else {
 			response.sendRedirect("/GestaoBibliografica/Cadastro.jsp");
 		}

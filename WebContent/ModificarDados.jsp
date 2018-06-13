@@ -31,7 +31,7 @@
 				<li class="nav-item"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
 						<span class="sr-only"></span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link"
+				<li class="nav-item active"><a class="nav-link"
 					href="ModificarDados.jsp">Modificar Dados <span class="sr-only"></span>
 				</a></li>
 			</ul>
@@ -39,13 +39,6 @@
 	</h3>
 	</nav>
 	<!-- Fim do menu de navegação -->
-	<%
-		Usuario usuario = new Usuario();
-		usuario.setNome(usuario.getNome());
-		usuario.setSobrenome(usuario.getSobrenome());
-		usuario.setLogin(usuario.getLogin());
-		usuario.setSenha(usuario.getSenha());
-	%>
 	<br>
 	<br>
 	<br>
@@ -61,28 +54,28 @@
 		<form action="/GestaoBibliografica/ModificarDadosController"
 			method="post">
 
+			<input type="hidden" name="id" value="${conta.id}">
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
 					<label for="validationDefault01">Nome</label> <input type="text"
-						class="form-control" name="nome"
-						placeholder="<%usuario.getNome();%>" required>
+						class="form-control" name="nome" value="${conta.nome}" required>
 				</div>
 				<div class="col-md-2 mb-3">
 					<label for="validationDefault02">Sobrenome</label> <input
 						type="text" class="form-control" name="sobrenome"
-						placeholder="<%usuario.getSobrenome();%>" required>
+						value="${conta.sobrenome}" required>
 				</div>
 
 				<div class="col-md-2 mb-3">
 					<label for="validationDefaultUsername">Usuário</label> <input
 						type="text" class="form-control" name="usuario"
-						placeholder="<%usuario.getLogin();%>"
-						aria-describedby="inputGroupPrepend2" required>
+						value="${conta.login}" aria-describedby="inputGroupPrepend2"
+						required>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="col-md-2 mb-3">
-					<label for="validationDefault03">Senha</label> <input type="text"
+					<label for="validationDefault03">Confirmar Senha</label> <input type="text"
 						class="form-control" name="senha" required>
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+<%@page import="br.ucsal.entidades.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>
@@ -25,13 +26,17 @@
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link"
-						href="Pesquisar.jsp">Home </a></li>
+						href="Home.jsp">Home </a></li>
 					<li class="nav-item"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
 							<span class="sr-only"></span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="ModificarDados.jsp">Modificar Dados <span
 							class="sr-only"></span>
+							<form action="/GestaoBibliografica/DeslogarController" method = "post">
+							<li class="nav-item"><a class="nav-link">Sair <span
+							class="sr-only"></span>
+							</form>
 					</a></li>
 				</ul>
 			</div>

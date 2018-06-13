@@ -20,7 +20,7 @@ public class EfetuarCadastroController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,10 +30,8 @@ public class EfetuarCadastroController extends HttpServlet {
 		String sobrenome = request.getParameter("sobrenome");
 		String senha = request.getParameter("senha");
 		String confirmarSenha = request.getParameter("confirmarSenha");
-
 		Usuario conta = new Usuario();
 		UsuarioDAO dao = new UsuarioDAO();
-
 		if (senha.equals(confirmarSenha)) {
 			conta.setLogin(usuario);
 			conta.setNome(nome);

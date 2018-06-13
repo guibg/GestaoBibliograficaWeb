@@ -1,5 +1,6 @@
+<%@page import="java.util.List"%>
 <%@page import="br.ucsal.entidades.Bibliografia"%>
-<%@page import="java.util.ArrayList"%>
+<!--<%@page import="java.util.ArrayList"%>-->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="br.ucsal.dao.BibliografiaDAO"%>
@@ -55,8 +56,9 @@ table>tbody>tr>td {
 				<li class="nav-item active"><a class="nav-link"
 					href="Pesquisar.jsp">Pesquisar <span class="sr-only"></span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="Cadastro.jsp">Minhas
-						reservas</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="ModificarDados.jsp">Modificar Dados <span class="sr-only"></span>
+				</a></li>
 			</ul>
 		</div>
 	</h3>
@@ -73,10 +75,11 @@ table>tbody>tr>td {
 		<table>
 			<tr>
 				<%
-					/*ArrayList<Bibliografia> x = Bibliografia.bibliografias;
+					BibliografiaDAO bibli = new BibliografiaDAO();
+					List<Bibliografia> x = (List<Bibliografia>) bibli.Consultar();
 					String pesquisa = (String) session.getAttribute("pesquisa");
 					if (pesquisa != null) {
-						for (int i = 0; i < Bibliografia.bibliografias.size(); i++) {
+						for (int i = 0; i < x.size(); i++) {
 							if (x.get(i).getTitulo().toLowerCase().contains(pesquisa.toLowerCase())
 									|| x.get(i).getAutor().getNome().toLowerCase().contains(pesquisa.toLowerCase())
 									|| x.get(i).getAutor().getSobrenome().toLowerCase().contains(pesquisa.toLowerCase())
@@ -88,17 +91,8 @@ table>tbody>tr>td {
 										+ "° Edição</td>");
 							}
 						}
-					}*/
+					}
 				%>
-				<c:forEach var="livro" items="${bibliografias}">
-					<c:if test="">
-						<td class='tdEspaco'>Titulo: ${livro.titulo} <br>Editora:
-							${livro.editora}<br> Autor: ${livro.autor.nome}
-							${livro.autor.sobrenome}<br>Materia: ${livro.materia.nome}<br>
-							Edição:${livro.edicao}° Edição
-						</td>
-					</c:if>
-				</c:forEach>
 			</tr>
 		</table>
 	</form>

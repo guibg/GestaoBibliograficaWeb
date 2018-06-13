@@ -30,8 +30,6 @@
 				<li class="nav-item"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
 						<span class="sr-only"></span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="Cadastro.jsp">Minhas
-						reservas</a></li>
 			</ul>
 		</div>
 	</h3>

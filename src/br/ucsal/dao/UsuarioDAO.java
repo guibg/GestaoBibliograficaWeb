@@ -8,7 +8,11 @@ import br.ucsal.util.Conexao;
 
 public class UsuarioDAO {
 
-	private Conexao conexao = new Conexao();
+	private Conexao conexao;
+
+	public UsuarioDAO() {
+		this.conexao = conexao.getConexao();
+	}
 
 	public boolean verificar(Usuario usuario) {
 		boolean achou = false;
@@ -27,8 +31,6 @@ public class UsuarioDAO {
 			}
 			ps.close();
 		} catch (SQLException e) {
-			System.out.println(usuario);
-			
 			e.printStackTrace();
 		}
 		return achou;
@@ -37,11 +39,12 @@ public class UsuarioDAO {
 	public void inserir(Usuario usuario) {
 		try {
 			PreparedStatement ps = conexao.getConnection()
-					.prepareStatement("insert into usuarios (login, senha, nome, sobrenome) values (?, ?, ?, ?)");
+					.prepareStatement("insert into USUARIOS (LOGIN, SENHA, NOME, SOBRENOME, TIPO) values (?,?,?,?,?);");
 			ps.setString(1, usuario.getLogin());
 			ps.setString(2, usuario.getSenha());
 			ps.setString(3, usuario.getNome());
 			ps.setString(4, usuario.getSobrenome());
+			ps.setString(5, "usuario");
 			ps.execute();
 			ps.close();
 		} catch (SQLException e) {
@@ -52,7 +55,7 @@ public class UsuarioDAO {
 	public void atualizar(Usuario usuario) {
 		try {
 			PreparedStatement ps = conexao.getConnection()
-					.prepareStatement("update USUARIOS set LOGIN = ?, SENHA = ?, NOME = ?, SOBRENOME + ?;");
+					.prepareStatement("update USUARIOS set LOGIN = ?, SENHA = ?, NOME = ?, SOBRENOME = ?;");
 			ps.setString(1, usuario.getLogin());
 			ps.setString(2, usuario.getSenha());
 			ps.setString(3, usuario.getNome());
@@ -64,5 +67,4 @@ public class UsuarioDAO {
 			e.printStackTrace();
 		}
 	}
-
 }

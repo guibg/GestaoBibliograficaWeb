@@ -41,7 +41,7 @@ public class AdminFilter implements Filter {
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		Usuario usuario = (Usuario) httpServletRequest.getSession().getAttribute("usuario");
 		System.out.println(usuario.getLogin());
-		if (usuario.isAdmin() == true) {
+		if (usuario.getTipo().equals("usuario")) {
 			chain.doFilter(request, response);
 		} else {
 			((HttpServletResponse) response).sendRedirect("login.jsp");

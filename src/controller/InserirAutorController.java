@@ -16,40 +16,41 @@ import br.ucsal.entidades.Autor;
 @WebServlet("/InserirAutorController")
 public class InserirAutorController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InserirAutorController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome = request.getParameter("nome");
-        String sobrenome = request.getParameter("sobrenome");
-
-        Autor autor = new Autor();
-        autor.setNome(nome);
-        autor.setSobrenome(sobrenome);
-
-        AutorDAO autorDAO = new AutorDAO();
-        autorDAO.inserir(autor);
-
-        // FIX ME
-        request.getRequestDispatcher("AutorHome.jsp").forward(request, response);
-    
+	public InserirAutorController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String nome = request.getParameter("nome");
+		String sobrenome = request.getParameter("sobrenome");
+
+		Autor autor = new Autor();
+		autor.setNome(nome);
+		autor.setSobrenome(sobrenome);
+		AutorDAO autorDAO = new AutorDAO();
+		autorDAO.inserir(autor);
+		//FIXME
+		request.getRequestDispatcher("Home.jsp").forward(request, response);
+
 	}
 
 }

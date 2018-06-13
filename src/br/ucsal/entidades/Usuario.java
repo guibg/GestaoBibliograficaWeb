@@ -6,7 +6,15 @@ public class Usuario {
 	private String senha;
 	private String nome;
 	private String sobrenome;
-	private boolean admin;
+	private String tipo;
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	public String getNome() {
 		return nome;
@@ -30,14 +38,6 @@ public class Usuario {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public boolean isAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
 	}
 
 	public String getLogin() {

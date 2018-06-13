@@ -1,7 +1,11 @@
+<%@page import="br.ucsal.dao.BibliografiaDAO"%>
+<%@page import="br.ucsal.entidades.Bibliografia"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="br.ucsal.entidades.Bibliografia"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -68,26 +72,29 @@ table>tbody>tr>td {
 				required>
 			<button type="submit" class="btn btn-success">Pesquisar</button>
 		</div>
-		<!-- <table>
+		<table>
 			<tr>
-				<%/*	ArrayList<Bibliografia> x = Bibliografia.bibliografias;
-				String pesquisa = (String) session.getAttribute("pesquisa");
-				if (pesquisa != null) {
-					for (int i = 0; i < Bibliografia.bibliografias.size(); i++) {
-						if (x.get(i).getTitulo().toLowerCase().contains(pesquisa.toLowerCase())
-								|| x.get(i).getAutor().getNome().toLowerCase().contains(pesquisa.toLowerCase())
-								|| x.get(i).getAutor().getSobrenome().toLowerCase().contains(pesquisa.toLowerCase())
-								|| x.get(i).getEditora().toLowerCase().contains(pesquisa.toLowerCase())
-								|| x.get(i).getMateria().getNome().toLowerCase().contains(pesquisa.toLowerCase())) {
-							out.print("<td class='tdEspaco'>Titulo:" + x.get(i).getTitulo() + " <br>Editora: "
-									+ x.get(i).getEditora() + "<br> Autor: " + x.get(i).getAutor().getNome() + " "
-									+ x.get(i).getAutor().getSobrenome() + "<br>Edição: " + x.get(i).getEdicao()
-									+ "° Edição</td>");
+				<%
+					BibliografiaDAO bibli = new BibliografiaDAO();
+					List<Bibliografia> x = (List<Bibliografia>) bibli.Consultar();
+					String pesquisa = (String) session.getAttribute("pesquisa");
+					if (pesquisa != null) {
+						for (int i = 0; i < x.size(); i++) {
+							if (x.get(i).getTitulo().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getAutor().getNome().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getAutor().getSobrenome().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getEditora().toLowerCase().contains(pesquisa.toLowerCase())
+									|| x.get(i).getMateria().getNome().toLowerCase().contains(pesquisa.toLowerCase())) {
+								out.print("<td class='tdEspaco'>Titulo:" + x.get(i).getTitulo() + " <br>Editora: "
+										+ x.get(i).getEditora() + "<br> Autor: " + x.get(i).getAutor().getNome() + " "
+										+ x.get(i).getAutor().getSobrenome() + "<br>Edição: " + x.get(i).getEdicao()
+										+ "° Edição</td>");
+							}
 						}
 					}
-				}*/%>
+				%>
 			</tr>
-		</table> -->
+		</table>
 	</form>
 </body>
 </html>

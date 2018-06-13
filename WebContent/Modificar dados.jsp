@@ -9,7 +9,7 @@
 	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
 	crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Pagina principal</title>
+<title>Modificar dados</title>
 </head>
 <body>
 	<!--  Menu de navegação> -->
@@ -26,18 +26,29 @@
 
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="Pesquisar.jsp"">Home
+				<li class="nav-item"><a class="nav-link" href="Home.jsp">Home
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
 						<span class="sr-only"></span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="AdminInserir.jsp">Inserir</a></li>
+					href="ModificarDados.jsp">Modificar Dados <span class="sr-only"></span>
+				</a></li>
 			</ul>
 		</div>
 	</h3>
 	</nav>
 	<!-- Fim do menu de navegação -->
+	<%
+		Usuario usuario = new Usuario();
+		usuario.setNome(usuario.getNome());
+		usuario.setSobrenome(usuario.getSobrenome());
+		usuario.setLogin(usuario.getLogin());
+		usuario.setSenha(usuario.getSenha());
+	%>
+	<br>
+	<br>
+	<br>
 	<br>
 	<br>
 	<br>
@@ -47,7 +58,36 @@
 	<br>
 	<br>
 	<div align="center">
-		<h1>Bem vindo, Admin!</h1>
+		<form action="/GestaoBibliografica/ModificarDadosController"
+			method="post">
+
+			<div class="form-row">
+				<div class="col-md-2 mb-3">
+					<label for="validationDefault01">Nome</label> <input type="text"
+						class="form-control" name="nome"
+						placeholder="<%usuario.getNome();%>" required>
+				</div>
+				<div class="col-md-2 mb-3">
+					<label for="validationDefault02">Sobrenome</label> <input
+						type="text" class="form-control" name="sobrenome"
+						placeholder="<%usuario.getSobrenome();%>" required>
+				</div>
+
+				<div class="col-md-2 mb-3">
+					<label for="validationDefaultUsername">Usuário</label> <input
+						type="text" class="form-control" name="usuario"
+						placeholder="<%usuario.getLogin();%>"
+						aria-describedby="inputGroupPrepend2" required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-2 mb-3">
+					<label for="validationDefault03">Senha</label> <input type="text"
+						class="form-control" name="senha" required>
+				</div>
+			</div>
+			<button class="btn btn-primary" type="submit">Enviar dados</button>
+		</form>
 	</div>
 </body>
 </html>
